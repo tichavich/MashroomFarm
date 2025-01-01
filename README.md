@@ -8,15 +8,36 @@
    - ค้นหาคำว่า "ESP8266"
    - เลือก esp8266 by ESP8266 community เวอร์ใหม่ล่าสุด
    - กด Install
-5. การจัดเตรียมก่อนอัพโหลดโปรแกรมเข้าบอร์ด
+5. ติดตั้ง Library DHT
+   - ไปที่ Menu Tools -> Board: "Arduino…" ->  Boards Manager...
+   - ค้นหาคำว่า "ESP8266"
+   - เลือก esp8266 by ESP8266 community เวอร์ใหม่ล่าสุด
+   - กด Install
+6. การจัดเตรียมก่อนอัพโหลดโปรแกรมเข้าบอร์ด
    - เลือกชนิดของบอร์ด ESP8266 ไปที่ Tools -> Board: NodeMCU (ESP8266 ESP-12 Module)
    - เลือก Port การเชื่อมต่อ ไปที่ Tools -> Port -> com..
-6. โค้ดโปรแกรมบอร์ด 
+7. โค้ดโปรแกรมบอร์ด 
    [Code Arduino Uno](https://github.com/tichavich/MashroomFarm/blob/master/board_arduino.c)
-   - โค้ด
+   - อ่านค่าความชื้นและอุณหภูมิ Senser และส่งค่าผ่าน Serial Port
+        ```
+        // Read temperature as Celsius (the default)  
+        float t = dht.readTemperature();
+        float h = dht.readHumidity();
+      
+        DynamicJsonDocument doc(1024);
+        doc["temperature"] = t;
+        doc["humidity"] = h;
+        doc["switched_state"] = digitalRead(switched_pin);
+        doc["relay_state"] = digitalRead(relay_pin);
+              
+        char buffer[256];
+        serializeJson(doc, buffer);
+        //  output json string 
+        Serial.println(buffer+String(";"));
+        ```
 8. โค้ดโปรแกรมบอร์ด 
    [Code ESP8266](https://github.com/tichavich/MashroomFarm/blob/master/board_esp8266.c)
-   - การกำหนดค่าที่สำคัญ
+   - กำหนดค่าที่สำคัญ
       ```
       //WIFI
       const char* ssid = "...";
@@ -82,7 +103,7 @@
          }
       }
       ```
-10. หน้า Dashboard ควบคุมการทำงานของวงจร ด้วย [NETPIE.io](https://netpie.io/)
+9. หน้า Dashboard ควบคุมการทำงานของวงจร ด้วย [NETPIE.io](https://netpie.io/)
 
 ![Screenshot 2024-12-21 212726](https://github.com/user-attachments/assets/aaea5e39-c7bd-4de2-93d6-d8b633f8a38d)
 ![Screenshot 2024-12-21 212813](https://github.com/user-attachments/assets/5cd857ad-e9dc-43e4-9213-be556dbc862a)
