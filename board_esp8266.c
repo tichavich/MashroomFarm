@@ -144,7 +144,5 @@ void publishTemp()
         Serial.println("\nPublish failed");
       }
     }    
-  }
-  
-
+  } 
 }

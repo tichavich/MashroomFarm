@@ -29,9 +29,67 @@
       const char* mqtt_username = "...";     //Token
       const char* mqtt_password = "..";     //Secret
       ```
-10. หน้า Dashboard ควบคุมการทำงานของวงจร ด้วย [NETPIE.](https://netpie.io/)
+   - ฟังก์ชั่นสำหรับส่งข้อมูลขึ้น mqtt.netpie.io ด้วย publish "@shadow/data/update" รูปแบบ JSON
+      ```
+      void publishTemp(){
+         DynamicJsonDocument doc(1024); 
+         // Sending the request
+         if(Serial.available() > 0){
+            String input_text = Serial.readString();
+            if(input_text.indexOf(';') != -1){    
+               JsonDocument json_data;
+               deserializeJson(json_data, input_text);
+               temperature = json_data["temperature"];
+               doc["data"]["temperature"] = temperature;
+               doc["data"]["humidity"] = json_data["humidity"];
+               //doc["data"]["pump_water"] = json_data["pump_water"];
+               doc["data"]["pump_water"] = pump_switch;
+               doc["data"]["set_temp"] = set_temp;
+                     
+               char buffer[256];
+               serializeJson(doc, buffer);
+               
+               if (client.publish("@shadow/data/update", buffer)) {
+               Serial.println("\nPublish ok");
+               }else{
+               Serial.println("\nPublish failed");
+               }
+            }    
+         } 
+      }
+      ```
+   - ฟังก์ชั่นสำหรับรับข้อมูลจาก mqtt.netpie.io ด้วย topic "@msg/..." รูปแบบ String
+      ```
+      void callback(char* topic, byte* payload, unsigned int length) {
+         Serial.print("Message arrived [");
+         Serial.print(topic);
+         Serial.print("] ");
+         String message_payload;
+         for (int i = 0; i < length; i++) {
+            message_payload += (char)payload[i];
+         }  
+         Serial.println(message_payload);
+         if(String(topic) == "@msg/set_temp"){
+            //Serial.println("{\"set_temp\":"+message_payload+"}");
+            set_temp = message_payload.toInt();
+            switched_state = 0;
+         }
+
+         if(String(topic) == "@msg/pump_switch"){
+            //Serial.print("{\"pump_switch\":"+message_payload+"}");    
+            pump_switch = message_payload.toInt();
+            switched_state = 1;
+         }
+      }
+      ```
+10. หน้า Dashboard ควบคุมการทำงานของวงจร ด้วย [NETPIE.io](https://netpie.io/)
 
 ![Screenshot 2024-12-21 212726](https://github.com/user-attachments/assets/aaea5e39-c7bd-4de2-93d6-d8b633f8a38d)
 ![Screenshot 2024-12-21 212813](https://github.com/user-attachments/assets/5cd857ad-e9dc-43e4-9213-be556dbc862a)
 ![Screenshot 2024-12-21 212842](https://github.com/user-attachments/assets/da605f33-652e-4ad8-a457-fc1c1da4178a)
 ![Screenshot 2024-12-21 212922](https://github.com/user-attachments/assets/9f6cd67b-f4d7-4e97-95a8-b7ddac235645)
+
+
+แหล่งข้อมูลเพิ่มเติม
+[Arduino IDE Document](https://docs.arduino.cc/built-in-examples/)
+[คู่มือการใช้งาน NETPIE](https://netpie.io/guide)
