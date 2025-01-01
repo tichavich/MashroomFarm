@@ -6,15 +6,15 @@
 #include <SoftwareSerial.h>
 
 //WIFI
-const char* ssid = "OPPO A77s";
-const char* password = "p3npjs27";
+const char* ssid = "...";
+const char* password = "...";
 
 //NETPIE
 const char* mqtt_server = "mqtt.netpie.io";
 const int mqtt_port = 1883;
-const char* mqtt_Client = "aea2bd9a-f1fa-4022-ba3b-8d28b1abaa11";   //Client ID
-const char* mqtt_username = "nTvXQ2HSNxUNAnpciRgpg6hfcVqBuvi2";     //Token
-const char* mqtt_password = "tTJAc1xJWGrnygY2ZaBxF14UcXhzUQgt";     //Secret
+const char* mqtt_Client = "...";   //Client ID
+const char* mqtt_username = "...";     //Token
+const char* mqtt_password = "..";     //Secret
 
 
 WiFiClient espClient;

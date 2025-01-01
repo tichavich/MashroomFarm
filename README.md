@@ -13,9 +13,23 @@
    - เลือก Port การเชื่อมต่อ ไปที่ Tools -> Port -> com..
 6. โค้ดโปรแกรมบอร์ด 
    [Code Arduino Uno](https://github.com/tichavich/MashroomFarm/blob/master/board_arduino.c)
+   - โค้ด
 8. โค้ดโปรแกรมบอร์ด 
    [Code ESP8266](https://github.com/tichavich/MashroomFarm/blob/master/board_esp8266.c)
-10. หน้า Dashboard ควบคุมการทำงานบน [NETPIE.](https://netpie.io/)
+   - การกำหนดค่าที่สำคัญ
+      ```
+      //WIFI
+      const char* ssid = "...";
+      const char* password = "...";
+
+      //NETPIE
+      const char* mqtt_server = "mqtt.netpie.io";
+      const int mqtt_port = 1883;
+      const char* mqtt_Client = "...";   //Client ID
+      const char* mqtt_username = "...";     //Token
+      const char* mqtt_password = "..";     //Secret
+      ```
+10. หน้า Dashboard ควบคุมการทำงานของวงจร ด้วย [NETPIE.](https://netpie.io/)
 
 ![Screenshot 2024-12-21 212726](https://github.com/user-attachments/assets/aaea5e39-c7bd-4de2-93d6-d8b633f8a38d)
 ![Screenshot 2024-12-21 212813](https://github.com/user-attachments/assets/5cd857ad-e9dc-43e4-9213-be556dbc862a)
