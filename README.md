@@ -111,7 +111,7 @@
 ![Screenshot 2024-12-21 212922](https://github.com/user-attachments/assets/9f6cd67b-f4d7-4e97-95a8-b7ddac235645)
 
 
-แหล่งข้อมูลเพิ่มเติม
-[Arduino IDE Document](https://docs.arduino.cc/built-in-examples/)
-[คู่มือการใช้งาน NETPIE](https://netpie.io/guide)
-[DHT11, DHT22 and AM2302 Sensors by adafruit](https://learn.adafruit.com/dht)
+### แหล่งข้อมูลเพิ่มเติม
+1. [Arduino IDE Document](https://docs.arduino.cc/built-in-examples/)
+2. [คู่มือการใช้งาน NETPIE](https://netpie.io/guide)
+3. [DHT11, DHT22 and AM2302 Sensors by adafruit](https://learn.adafruit.com/dht)
