@@ -5,13 +5,13 @@
    - เปิดโปรแกรม Arduino IDE ไปที่เมนู File -> Preferences เพิ่ม https://arduino.esp8266.com/stable/package_esp8266com_index.json ลงในช่อง Additional Boards Manager URLs เพื่อติดตั้งบอร์ด Library NodeMCU/ESP8266
 4. ติดตั้ง Library ESP8266 and DHT
    - ไปที่ Menu Tools -> Board: "Arduino…" ->  Boards Manager...
-   - ค้นหาคำว่า "ESP8266"
-   - เลือก esp8266 by ESP8266 community เวอร์ใหม่ล่าสุด
+   - ค้นหาคำว่า *"ESP8266"*
+   - เลือก **esp8266 by ESP8266 community** เวอร์ใหม่ล่าสุด
    - กด Install
 5. ติดตั้ง Library DHT
    - ไปที่ Menu Tools -> Board: "Arduino…" ->  Boards Manager...
-   - ค้นหาคำว่า "ESP8266"
-   - เลือก esp8266 by ESP8266 community เวอร์ใหม่ล่าสุด
+   - ค้นหาคำว่า *"dht"*
+   - เลือก **DHT sensor library by Adafruit** เวอร์ใหม่ล่าสุด
    - กด Install
 6. การจัดเตรียมก่อนอัพโหลดโปรแกรมเข้าบอร์ด
    - เลือกชนิดของบอร์ด ESP8266 ไปที่ Tools -> Board: NodeMCU (ESP8266 ESP-12 Module)
@@ -114,3 +114,4 @@
 แหล่งข้อมูลเพิ่มเติม
 [Arduino IDE Document](https://docs.arduino.cc/built-in-examples/)
 [คู่มือการใช้งาน NETPIE](https://netpie.io/guide)
+[DHT11, DHT22 and AM2302 Sensors by adafruit](https://learn.adafruit.com/dht)
