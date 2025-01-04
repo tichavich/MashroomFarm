@@ -1,6 +1,6 @@
 ## Mashroom Farm Project
 1. วงจร
-![circuit_diagram](https://github.com/user-attachments/assets/05ad61a1-3b12-4274-8722-0bdd2fe4f0f4)
+![circuit_diagram](https://github.com/user-attachments/assets/43f03299-f209-4664-bbf4-4924629f1152)
 2. ติดตั้งโปรแกรม Arduino IDE สำหรับเขียนโค้ด
    - ติดตั้งผ่าน Microsoft Store หรือติดตั้งจากไฟล์ https://www.arduino.cc/en/software
    - เปิดโปรแกรม Arduino IDE ไปที่เมนู File -> Preferences เพิ่ม https://arduino.esp8266.com/stable/package_esp8266com_index.json ลงในช่อง Additional Boards Manager URLs เพื่อติดตั้งบอร์ด Library NodeMCU/ESP8266
