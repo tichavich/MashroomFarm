@@ -110,6 +110,12 @@
 ![Screenshot 2024-12-21 212813](https://github.com/user-attachments/assets/5cd857ad-e9dc-43e4-9213-be556dbc862a)
 ![Screenshot 2024-12-21 212842](https://github.com/user-attachments/assets/da605f33-652e-4ad8-a457-fc1c1da4178a)
 ![Screenshot 2024-12-21 212922](https://github.com/user-attachments/assets/9f6cd67b-f4d7-4e97-95a8-b7ddac235645)
+<img width="827" height="237" alt="image" src="https://github.com/user-attachments/assets/56aaeeff-fd71-412d-ac63-a1a39554aaa9" />
+#["ESP8266"]["shadow"]["set_temp"]      รับค่า
+#["ESP8266"].publishMsg("set_temp",value)  ส่งค่า
+<img width="517" height="328" alt="image" src="https://github.com/user-attachments/assets/b85539d5-2d30-4c7d-a093-2956622b9fe0" />
+<img width="541" height="331" alt="image" src="https://github.com/user-attachments/assets/c0a80395-9ba9-4baf-b959-01ae8b3d3586" />
+
 
 
 ### แหล่งข้อมูลเพิ่มเติม
